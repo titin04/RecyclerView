@@ -6,16 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dinosaurios.models.Dinosaur
 import com.example.dinosaurios.R
 
-class AdapterDinosaur(var listDinosaurs: MutableList<Dinosaur>) :
+class AdapterDinosaur(var listDinosaurs: MutableList<Dinosaur>, var deleteOnClick: (Int) -> Unit, var updateOnClick: (Int) -> Unit) :
     RecyclerView.Adapter<ViewHolderDinosaur>() {
 
     /*
      Metodo que crea la view del ViewHolderDinosaur
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderDinosaur {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.item_dinosaur, parent, false)
-        return ViewHolderDinosaur(view)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_dinosaur, parent, false)
+        return ViewHolderDinosaur(view, deleteOnClick, updateOnClick)
     }
 
     /*

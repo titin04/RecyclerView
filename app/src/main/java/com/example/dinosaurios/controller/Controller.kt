@@ -9,9 +9,20 @@ import com.example.dinosaurios.models.Dinosaur
 
 class ControllerDinosaur(val context: Context) {
     lateinit var listDinosaurs: MutableList<Dinosaur> //lista de objetos
+    lateinit var adapter: AdapterDinosaur
 
     init {
         initData()
+    }
+
+    fun borrarDinosaurio(listDinosaurs: MutableList<Dinosaur>, position: Int) {
+        Toast.makeText(context, "Borraremos el dinosaurio: ${listDinosaurs[position].name}", Toast.LENGTH_SHORT).show()
+        listDinosaurs.removeAt(position)
+        adapter.notifyItemRemoved(position)
+    }
+
+    fun editarDinosaurio(listDinosaurs: MutableList<Dinosaur>, position: Int) {
+        Toast.makeText(context, "Editando: ${listDinosaurs[position].name}", Toast.LENGTH_SHORT).show()
     }
 
     fun initData() {
@@ -29,6 +40,14 @@ class ControllerDinosaur(val context: Context) {
     fun setAdapter() {
         //cargamos nuestro AdapterDinosaur al RecyclerView
         val myActivity = context as MainActivity
-        myActivity.binding.recyclerView.adapter = AdapterDinosaur(listDinosaurs)
+        adapter = AdapterDinosaur(listDinosaurs,
+            {
+                position -> borrarDinosaurio(listDinosaurs, position)
+            },
+            {
+                position -> editarDinosaurio(listDinosaurs, position)
+            }
+        )
+        myActivity.binding.recyclerView.adapter = adapter
     }
 }
