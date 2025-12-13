@@ -2,52 +2,74 @@ package com.example.dinosaurios.controller
 
 import android.content.Context
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dinosaurios.DialogDeleteDinosaur
+import com.example.dinosaurios.DialogEditDinosaur
+import com.example.dinosaurios.DialogNewDinosaur
 import com.example.dinosaurios.MainActivity
 import com.example.dinosaurios.adapter.AdapterDinosaur
 import com.example.dinosaurios.dao.DaoDinosaur
 import com.example.dinosaurios.models.Dinosaur
 
-class ControllerDinosaur(val context: Context) {
-    lateinit var listDinosaurs: MutableList<Dinosaur> //lista de objetos
+class Controller(val context: Context) {
+    lateinit var listDinosaurs: MutableList<Dinosaur>
     lateinit var adapter: AdapterDinosaur
+    private lateinit var layoutManager: LinearLayoutManager
 
-    init {
-        initData()
-    }
+    init { initData() }
 
-    fun borrarDinosaurio(listDinosaurs: MutableList<Dinosaur>, position: Int) {
-        Toast.makeText(context, "Borraremos el dinosaurio: ${listDinosaurs[position].name}", Toast.LENGTH_SHORT).show()
-        listDinosaurs.removeAt(position)
-        adapter.notifyItemRemoved(position)
-    }
-
-    fun editarDinosaurio(listDinosaurs: MutableList<Dinosaur>, position: Int) {
-        Toast.makeText(context, "Editando: ${listDinosaurs[position].name}", Toast.LENGTH_SHORT).show()
-    }
-
-    fun initData() {
-        //llamamos al singleton DaoDinosaur
+    private fun initData() {
         listDinosaurs = DaoDinosaur.myDao.getDataDinosaurs().toMutableList()
     }
 
-    fun loggOut() {
-        Toast.makeText(context, "He mostrado los datos en pantalla", Toast.LENGTH_LONG).show()
-        listDinosaurs.forEach {
-            println(it)
+    fun setAdapter() {
+        val myActivity = context as MainActivity
+        layoutManager = myActivity.binding.recyclerView.layoutManager as LinearLayoutManager
+
+        adapter = AdapterDinosaur(
+            listDinosaurs,
+            { pos -> borrarDinosaurio(pos) },
+            { pos -> editarDinosaurio(pos) }
+        )
+        myActivity.binding.recyclerView.adapter = adapter
+
+        myActivity.binding.btnAdd.setOnClickListener { addDinosaur() }
+    }
+
+    private fun addDinosaur() {
+        val dialog = DialogNewDinosaur { dino -> okOnNewDinosaur(dino) }
+        (context as MainActivity).supportFragmentManager.let {
+            dialog.show(it, "Añadir dinosaurio")
         }
     }
 
-    fun setAdapter() {
-        //cargamos nuestro AdapterDinosaur al RecyclerView
-        val myActivity = context as MainActivity
-        adapter = AdapterDinosaur(listDinosaurs,
-            {
-                position -> borrarDinosaurio(listDinosaurs, position)
-            },
-            {
-                position -> editarDinosaurio(listDinosaurs, position)
-            }
-        )
-        myActivity.binding.recyclerView.adapter = adapter
+    private fun okOnNewDinosaur(dino: Dinosaur) {
+        listDinosaurs.add(dino)
+        adapter.notifyItemInserted(listDinosaurs.lastIndex)
+        layoutManager.scrollToPositionWithOffset(listDinosaurs.lastIndex, 20)
+    }
+
+    private fun borrarDinosaurio(pos: Int) {
+        val dino = listDinosaurs[pos]
+        val dialog = DialogDeleteDinosaur(pos, dino.name) { position ->
+            listDinosaurs.removeAt(position)
+            adapter.notifyItemRemoved(position)
+        }
+        (context as MainActivity).supportFragmentManager.let {
+            dialog.show(it, "Eliminar dinosaurio")
+        }
+    }
+
+    private fun editarDinosaurio(pos: Int) {
+        val dino = listDinosaurs[pos]
+        val dialog = DialogEditDinosaur(dino) { updated ->
+            listDinosaurs[pos] = updated
+            adapter.notifyItemChanged(pos)
+            layoutManager.scrollToPositionWithOffset(pos, 20)
+        }
+        (context as MainActivity).supportFragmentManager.let {
+            dialog.show(it, "Editar dinosaurio")
+        }
     }
 }
+
