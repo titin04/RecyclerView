@@ -1,35 +1,58 @@
 package com.example.dinosaurios
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.dinosaurios.controller.Controller
-import com.example.dinosaurios.databinding.ActivityMainBinding
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 
 class MainActivity : AppCompatActivity() {
 
-    // Declaramos el binding y el controller
-    lateinit var binding: ActivityMainBinding
-    lateinit var controller: Controller
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        // Inicializamos el binding
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
-        init()
+        navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
+        navController = navHostFragment.navController
+
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment))
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    private fun init() {
-        initRecyclerView()
-        controller = Controller(this) //Creamos el controller
-        controller.setAdapter() //Conectamos el adapter al RecyclerView
-        //controller.loggOut() | depuracion para ver por pantalla
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
     }
 
-    private fun initRecyclerView() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.toolbar_home -> {
+                navController.navigate(R.id.homeFragment)
+                true
+            }
+            R.id.toolbar_crud -> {
+                navController.navigate(R.id.crudFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

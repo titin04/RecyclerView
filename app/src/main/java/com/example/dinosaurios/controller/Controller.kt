@@ -1,7 +1,6 @@
 package com.example.dinosaurios.controller
 
 import android.content.Context
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinosaurios.DialogDeleteDinosaur
 import com.example.dinosaurios.DialogEditDinosaur
@@ -9,9 +8,10 @@ import com.example.dinosaurios.DialogNewDinosaur
 import com.example.dinosaurios.MainActivity
 import com.example.dinosaurios.adapter.AdapterDinosaur
 import com.example.dinosaurios.dao.DaoDinosaur
+import com.example.dinosaurios.databinding.FragmentCrudBinding
 import com.example.dinosaurios.models.Dinosaur
 
-class Controller(val context: Context) {
+class Controller(val context: Context, val binding: FragmentCrudBinding) {
     lateinit var listDinosaurs: MutableList<Dinosaur>
     lateinit var adapter: AdapterDinosaur
     private lateinit var layoutManager: LinearLayoutManager
@@ -23,17 +23,16 @@ class Controller(val context: Context) {
     }
 
     fun setAdapter() {
-        val myActivity = context as MainActivity
-        layoutManager = myActivity.binding.recyclerView.layoutManager as LinearLayoutManager
+        layoutManager = binding.recyclerView.layoutManager as LinearLayoutManager
 
         adapter = AdapterDinosaur(
             listDinosaurs,
             { pos -> borrarDinosaurio(pos) },
             { pos -> editarDinosaurio(pos) }
         )
-        myActivity.binding.recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter
 
-        myActivity.binding.btnAdd.setOnClickListener { addDinosaur() }
+        binding.btnAdd.setOnClickListener { addDinosaur() }
     }
 
     private fun addDinosaur() {
