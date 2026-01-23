@@ -18,7 +18,14 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.dinosaurios.databinding.ActivityMainBinding
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.WindowInsetsCompat
 
+/**
+ * Activity principal que contiene el NavigationDrawer y el NavHostFragment.
+ * - Configura AppBar/Drawer y BottomNavigation para que compartan el mismo NavController.
+ * - Oculta la status bar para evitar que el reloj del sistema tape la UI.
+ * - Rellena el header del Drawer con el username pasado desde LoginActivity.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -32,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         // Hide status bar to avoid system clock overlaying the UI
         WindowCompat.setDecorFitsSystemWindows(window, true)
         val insetsController = WindowInsetsControllerCompat(window, window.decorView)
-        insetsController.hide(android.view.WindowInsets.Type.statusBars())
+        // Usar WindowInsetsCompat para mantener compatibilidad con minSdk < 30
+        insetsController.hide(WindowInsetsCompat.Type.statusBars())
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

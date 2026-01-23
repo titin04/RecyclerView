@@ -3,6 +3,10 @@ package com.example.dinosaurios.objects_models
 import com.example.dinosaurios.R
 import com.example.dinosaurios.models.Dinosaur
 
+/**
+ * Repositorio estático de ejemplo que contiene una lista de dinosaurios predefinida.
+ * Usado por el `DaoDinosaur` como fuente de datos inicial.
+ */
 object Repository {
     val listDinosaurs: List<Dinosaur> = listOf(
         Dinosaur("Carcha", "Carnívoro", "Montañas", 150, R.drawable.carcharodontosaurus),

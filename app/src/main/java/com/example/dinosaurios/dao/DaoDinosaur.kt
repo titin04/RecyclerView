@@ -4,6 +4,9 @@ import com.example.dinosaurios.interfaces.InterfaceDao
 import com.example.dinosaurios.models.Dinosaur
 import com.example.dinosaurios.objects_models.Repository
 
+/**
+ * DAO simple implementado como singleton. Devuelve los datos del `Repository`.
+ */
 class DaoDinosaur private constructor() : InterfaceDao {
 
     companion object {

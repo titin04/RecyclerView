@@ -10,6 +10,12 @@ import androidx.fragment.app.DialogFragment
 import com.example.dinosaurios.databinding.DialogNewDinosaurBinding
 import com.example.dinosaurios.models.Dinosaur
 
+/**
+ * DialogFragment para crear un nuevo dinosaurio.
+ * - Ofrece un Spinner con nombres de imágenes ya existentes (mapeadas a drawables).
+ * - Al pulsar "Añadir" valida campos y construye un objeto `Dinosaur` que se devuelve
+ *   vía `onNewDinoDialog`.
+ */
 class DialogNewDinosaur(
     val onNewDinoDialog: (Dinosaur) -> Unit
 ) : DialogFragment() {
@@ -79,5 +85,3 @@ class DialogNewDinosaur(
         )
     }
 }
-
-

@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dinosaurios.models.Dinosaur
 import com.example.dinosaurios.R
 
+/**
+ * Adapter para el RecyclerView que muestra la lista de `Dinosaur`.
+ * - Recibe callbacks para borrar/editar/item click.
+ */
 class AdapterDinosaur(
     var listDinosaurs: MutableList<Dinosaur>,
     var deleteOnClick: (Int) -> Unit,

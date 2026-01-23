@@ -9,6 +9,12 @@ import com.example.dinosaurios.R
 import com.example.dinosaurios.controller.Controller
 import com.example.dinosaurios.databinding.FragmentCrudBinding
 
+/**
+ * Fragment que contiene el CRUD principal (lista de dinosaurios).
+ * - Inicializa el RecyclerView y el Controller que administra la lista.
+ * - Cuando se selecciona un item llama a la navegación hacia `DetailsFragment` pasando
+ *   la posición del item como "itemId" en un Bundle (sin Safe Args).
+ */
 class CrudFragment : Fragment(R.layout.fragment_crud) {
 
     lateinit var binding: FragmentCrudBinding
@@ -33,6 +39,7 @@ class CrudFragment : Fragment(R.layout.fragment_crud) {
     }
 
     private fun initRecyclerView() {
+        // Usamos LinearLayoutManager para lista vertical
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 }

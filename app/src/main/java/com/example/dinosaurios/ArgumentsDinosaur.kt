@@ -1,5 +1,9 @@
 package com.example.dinosaurios
 
+/**
+ * Constantes con las claves usadas para pasar argumentos a Dialogs/Fragments
+ * (por ejemplo al editar/crear dinosaurios).
+ */
 object ArgumentsDinosaur {
     const val ARGUMENT_NAME = "name"
     const val ARGUMENT_TYPE = "type"

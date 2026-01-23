@@ -6,6 +6,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dinosaurios.databinding.ActivityLoginBinding
 
+/**
+ * Activity de login simple.
+ * - Comprueba usuario/contraseña hardcodeados ("admin"/"admin").
+ * - Si es correcto lanza `MainActivity` pasando el username en el Intent.
+ * - Botones de registro y recuperación muestran Toasts (pendientes de implementar).
+ */
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
