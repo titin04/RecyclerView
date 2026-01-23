@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="cardview_text">#ED0707</color>
+    <color name="color_bar_main">#4F1310</color>
 </resources>

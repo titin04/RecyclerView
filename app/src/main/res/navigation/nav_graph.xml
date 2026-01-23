@@ -14,5 +14,38 @@
         android:id="@+id/crudFragment"
         android:name="com.example.dinosaurios.ui.CrudFragment"
         android:label="Dinosaurios CRUD"
-        tools:layout="@layout/fragment_crud" />
+        tools:layout="@layout/fragment_crud" >
+        <action
+            android:id="@+id/action_crudFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.dinosaurios.ui.DetailsFragment"
+        android:label="Detalles"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="itemId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.dinosaurios.ui.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/shareFragment"
+        android:name="com.example.dinosaurios.ui.ShareFragment"
+        android:label="Share"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.dinosaurios.ui.AboutFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about" />
+
 </navigation>

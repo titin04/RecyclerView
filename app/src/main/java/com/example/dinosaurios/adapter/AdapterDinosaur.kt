@@ -9,7 +9,8 @@ import com.example.dinosaurios.R
 class AdapterDinosaur(
     var listDinosaurs: MutableList<Dinosaur>,
     var deleteOnClick: (Int) -> Unit,
-    var updateOnClick: (Int) -> Unit
+    var updateOnClick: (Int) -> Unit,
+    var itemOnClick: (Int) -> Unit
     ) : RecyclerView.Adapter<ViewHolderDinosaur>() {
 
     /*
@@ -17,7 +18,7 @@ class AdapterDinosaur(
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderDinosaur {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_dinosaur, parent, false)
-        return ViewHolderDinosaur(view, deleteOnClick, updateOnClick)
+        return ViewHolderDinosaur(view, deleteOnClick, updateOnClick, itemOnClick)
     }
 
     /*

@@ -22,13 +22,14 @@ class Controller(val context: Context, val binding: FragmentCrudBinding) {
         listDinosaurs = DaoDinosaur.myDao.getDataDinosaurs().toMutableList()
     }
 
-    fun setAdapter() {
+    fun setAdapter(itemClick: (Int) -> Unit) {
         layoutManager = binding.recyclerView.layoutManager as LinearLayoutManager
 
         adapter = AdapterDinosaur(
             listDinosaurs,
             { pos -> borrarDinosaurio(pos) },
-            { pos -> editarDinosaurio(pos) }
+            { pos -> editarDinosaurio(pos) },
+            itemClick
         )
         binding.recyclerView.adapter = adapter
 
@@ -71,4 +72,3 @@ class Controller(val context: Context, val binding: FragmentCrudBinding) {
         }
     }
 }
-

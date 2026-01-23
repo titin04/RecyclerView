@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="top">
+    tools:context=".ui.ShareFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_welcome"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/home_name"
+        android:text="@string/search_title"
         android:textSize="24sp"
-        android:textColor="@color/color_bar_main"
-        android:layout_marginBottom="24dp" />
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search_hint"
+        android:inputType="text"
+        android:autofillHints="off"
+        android:padding="12dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/black"
+        android:textColorHint="#999999"
+        android:background="@drawable/edit_text_border" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_title"
+        android:text="@string/search_results"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -35,59 +41,42 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_description"
+        android:text="@string/search_placeholder"
         android:textSize="14sp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="24dp" />
+        android:textColor="#999999"
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_quick_actions"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/home_action1"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/home_action2"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/home_action3"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="24dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/home_info_title"
+        android:text="@string/search_suggestions"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="8dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_info_text"
-        android:textSize="12sp"
-        android:textColor="#666666"
-        android:layout_marginBottom="16dp" />
+        android:text="@string/search_by_name"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search_by_type"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search_by_habitat"
+        android:textSize="14sp"
+        android:textColor="@color/black" />
 
 </LinearLayout>

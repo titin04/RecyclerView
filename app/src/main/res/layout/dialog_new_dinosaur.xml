@@ -5,28 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_select_image"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/spinnerImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
+
     <EditText
         android:id="@+id/txtName"
-        android:hint="Nombre"
+        android:hint="@string/dialog_hint_name"
+        android:inputType="text"
+        android:autofillHints="name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/txtType"
-        android:hint="Tipo"
+        android:hint="@string/dialog_hint_type"
+        android:inputType="text"
+        android:autofillHints="off"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/txtHabitat"
-        android:hint="Hábitat"
+        android:hint="@string/dialog_hint_habitat"
+        android:inputType="text"
+        android:autofillHints="off"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/txtLevel"
-        android:hint="Nivel"
+        android:hint="@string/dialog_hint_level"
         android:inputType="number"
+        android:autofillHints="off"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 </LinearLayout>

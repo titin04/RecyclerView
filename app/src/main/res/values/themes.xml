@@ -1,9 +1,21 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.Dinosaurios" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Dinosaurios" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/color_bar_main</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
     </style>
 
-    <style name="Theme.Dinosaurios" parent="Base.Theme.Camisetas" />
+    <style name="Theme.Dinosaurios" parent="Base.Theme.Dinosaurios" />
+
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/color_bar_main</item>
+        <item name="titleTextAppearance">@style/Widget.App.Toolbar.Title</item>
+    </style>
+
+    <style name="Widget.App.Toolbar.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>
