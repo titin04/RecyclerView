@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="@string/home_name"
         android:textSize="24sp"
-        android:textColor="@color/color_bar_main"
+        android:textColor="@color/black"
         android:layout_marginBottom="24dp" />
 
     <TextView

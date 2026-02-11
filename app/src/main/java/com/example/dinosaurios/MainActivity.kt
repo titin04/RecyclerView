@@ -21,11 +21,12 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.WindowInsetsCompat
 
 /**
- * Activity principal que contiene el NavigationDrawer y el NavHostFragment.
- * - Configura AppBar/Drawer y BottomNavigation para que compartan el mismo NavController.
- * - Oculta la status bar para evitar que el reloj del sistema tape la UI.
- * - Rellena el header del Drawer con el username pasado desde LoginActivity.
+ * activity principal que contiene el navigationdrawer y el navhostfragment.
+ * - configura appbar/drawer y bottomnavigation para que compartan el mismo navcontroller.
+ * - oculta la status bar para evitar que el reloj del sistema tape la ui.
+ * - rellena el header del drawer con el username pasado desde loginactivity.
  */
+@dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -36,10 +37,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Hide status bar to avoid system clock overlaying the UI
+        // hide status bar to avoid system clock overlaying the ui
         WindowCompat.setDecorFitsSystemWindows(window, true)
         val insetsController = WindowInsetsControllerCompat(window, window.decorView)
-        // Usar WindowInsetsCompat para mantener compatibilidad con minSdk < 30
+        // usar windowinsetscompat para mantener compatibilidad con minsdk < 30
         insetsController.hide(WindowInsetsCompat.Type.statusBars())
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -98,6 +99,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.nav_logout -> {
+                    com.google.firebase.auth.FirebaseAuth.getInstance().signOut()
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                     true
@@ -118,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                 if (navView.headerCount > 0) {
                     navView.getHeaderView(0)
                 } else {
-                    // Inflar el header manualmente para asegurarnos de que exista
+                    // inflar el header manualmente para asegurarnos de que exista
                     navView.inflateHeaderView(R.layout.nav_header)
                 }
             } catch (_: Exception) {
@@ -150,6 +152,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
 
             R.id.action_logout -> {
+                com.google.firebase.auth.FirebaseAuth.getInstance().signOut()
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
                 true

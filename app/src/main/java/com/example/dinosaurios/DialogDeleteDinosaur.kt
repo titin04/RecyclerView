@@ -7,9 +7,9 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 
 /**
- * DialogFragment que muestra una confirmación para borrar un dinosaurio.
- * - Recibe la posición y el nombre para mostrar en el mensaje.
- * - Ejecuta `onDelete(pos)` si el usuario confirma.
+ * dialogfragment que muestra una confirmacin para borrar un dinosaurio.
+ * - recibe la posicin y el nombre para mostrar en el mensaje.
+ * - ejecuta `ondelete(pos)` si el usuario confirma.
  */
 class DialogDeleteDinosaur(
     val pos: Int,

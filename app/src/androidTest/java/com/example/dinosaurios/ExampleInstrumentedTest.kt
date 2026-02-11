@@ -9,13 +9,13 @@ import org.junit.runner.RunWith
 import org.junit.Assert.*
 
 /**
- * Instrumented test de ejemplo. Comprueba el packageName del contexto de la app.
+ * instrumented test de ejemplo. comprueba el packagename del contexto de la app.
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
-        // Context of the app under test.
+        // context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.camisetas", appContext.packageName)
     }

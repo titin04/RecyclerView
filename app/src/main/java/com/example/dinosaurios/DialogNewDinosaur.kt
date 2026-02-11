@@ -8,19 +8,19 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.dinosaurios.databinding.DialogNewDinosaurBinding
-import com.example.dinosaurios.models.Dinosaur
+import com.example.dinosaurios.domain.models.Dinosaur
 
 /**
- * DialogFragment para crear un nuevo dinosaurio.
- * - Ofrece un Spinner con nombres de imágenes ya existentes (mapeadas a drawables).
- * - Al pulsar "Añadir" valida campos y construye un objeto `Dinosaur` que se devuelve
- *   vía `onNewDinoDialog`.
+ * dialogfragment para crear un nuevo dinosaurio.
+ * - ofrece un spinner con nombres de imgenes ya existentes (mapeadas a drawables).
+ * - al pulsar "aadir" valida campos y construye un objeto `dinosaur` que se devuelve
+ *   va `onnewdinodialog`.
  */
 class DialogNewDinosaur(
     val onNewDinoDialog: (Dinosaur) -> Unit
 ) : DialogFragment() {
 
-    // Mapeo de nombres de imágenes a recursos drawable
+    // mapeo de nombres de imgenes a recursos drawable
     private val imageMap = mapOf(
         "Carcharodontosaurus" to R.drawable.carcharodontosaurus,
         "Parasaur" to R.drawable.parasaur,
@@ -43,7 +43,7 @@ class DialogNewDinosaur(
 
         val spinner = viewDialogNewDino.findViewById<Spinner>(R.id.spinnerImage)
 
-        // Configurar el spinner con las opciones de imágenes
+        // configurar el spinner con las opciones de imgenes
         val adapter = android.widget.ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_dropdown_item,

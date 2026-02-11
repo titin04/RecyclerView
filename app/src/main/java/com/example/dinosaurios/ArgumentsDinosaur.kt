@@ -1,7 +1,7 @@
 package com.example.dinosaurios
 
 /**
- * Constantes con las claves usadas para pasar argumentos a Dialogs/Fragments
+ * constantes con las claves usadas para pasar argumentos a dialogs/fragments
  * (por ejemplo al editar/crear dinosaurios).
  */
 object ArgumentsDinosaur {

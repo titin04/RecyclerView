@@ -8,12 +8,12 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.example.dinosaurios.models.Dinosaur
+import com.example.dinosaurios.domain.models.Dinosaur
 
 /**
- * Dialog para editar un dinosaurio existente.
- * - Recibe el objeto `Dinosaur` y pre-llena los campos del dialog.
- * - Al aceptar devuelve el `Dinosaur` actualizado mediante `updateDinoDialog`.
+ * dialog para editar un dinosaurio existente.
+ * - recibe el objeto `dinosaur` y pre-llena los campos del dialog.
+ * - al aceptar devuelve el `dinosaur` actualizado mediante `updatedinodialog`.
  */
 class DialogEditDinosaur(
     val dinoToUpdate: Dinosaur,
@@ -27,7 +27,7 @@ class DialogEditDinosaur(
     val ARGUMENT_IMAGE: String = ArgumentsDinosaur.ARGUMENT_IMAGE
 
     init {
-        // Construye un Bundle con los valores actuales para poder pre-llenar el dialog
+        // construye un bundle con los valores actuales para poder pre-llenar el dialog
         val args = Bundle().apply {
             putString(ARGUMENT_NAME, dinoToUpdate.name)
             putString(ARGUMENT_TYPE, dinoToUpdate.type)

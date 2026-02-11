@@ -2,6 +2,20 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="cardview_text">#ED0707</color>
-    <color name="color_bar_main">#4F1310</color>
+    
+    <!-- red theme palette -->
+    <color name="primaryRed">#D32F2F</color>
+    <color name="primaryDarkRed">#9A0007</color>
+    <color name="primaryLightRed">#FF6659</color>
+    <color name="secondaryRed">#C62828</color>
+    
+    <color name="background_light">#FFFFFF</color>
+    <color name="background_dark">#121212</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="text_primary_gray">#424242</color>
+    <color name="text_secondary_gray">#757575</color>
+    
+    <!-- legacy compatibility or specific uses -->
+    <color name="cardview_text">#D32F2F</color>
+    <color name="color_bar_main">#D32F2F</color>
 </resources>

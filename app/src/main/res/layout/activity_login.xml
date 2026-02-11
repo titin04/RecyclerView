@@ -1,67 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
-    android:background="@color/color_bar_main">
+    android:fillViewport="true"
+    android:background="@color/white">
 
-    <EditText
-        android:id="@+id/editUser"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_user"
-        android:inputType="textEmailAddress"
-        android:autofillHints="emailAddress"
-        android:textSize="12sp"
-        android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/cardview_text"
-        android:layout_marginBottom="16dp" />
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
 
-    <EditText
-        android:id="@+id/editPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        android:autofillHints="password"
-        android:padding="12dp"
-        android:textSize="12sp"
-        android:background="@android:drawable/edit_text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/cardview_text"
-        android:layout_marginBottom="24dp" />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/dinosaurio"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="App Logo" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_login"
-        android:textSize="12sp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/color_bar_main" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bienvenido"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/primaryRed"
+            android:layout_marginBottom="32dp" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:text="@string/btn_register"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/color_bar_main" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_user"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp"
+            app:boxStrokeColor="@color/primaryRed"
+            app:hintTextColor="@color/primaryRed">
 
-    <Button
-        android:id="@+id/btnRecover"
-        android:layout_width="match_parent"
-        android:textSize="12sp"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_recover"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/color_bar_main" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="24dp"
+            app:passwordToggleEnabled="true"
+            app:boxStrokeColor="@color/primaryRed"
+            app:hintTextColor="@color/primaryRed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/btn_login"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegister"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_register"
+            android:textColor="@color/primaryRed"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRecover"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_recover"
+            android:textColor="@color/primaryRed"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</ScrollView>

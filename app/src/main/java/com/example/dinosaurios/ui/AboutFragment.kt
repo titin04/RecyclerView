@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.dinosaurios.R
 
 /**
- * Fragment informativo "About". Plantilla básica que infla su layout.
+ * fragment informativo "about". plantilla bsica que infla su layout.
  */
 class AboutFragment : Fragment() {
     private var param1: String? = null

@@ -5,7 +5,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 /**
- * Test de ejemplo generado por plantilla. No relacionado con la lógica del proyecto.
+ * test de ejemplo generado por plantilla. no relacionado con la lgica del proyecto.
  */
 class ExampleUnitTest {
     @Test

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Dinosaurios</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- todo: remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fab_add">Añadir</string>
     <string name="menu_home">Home</string>
@@ -13,25 +13,25 @@
     <string name="action_search">Buscar</string>
     <string name="level_format">Nivel %d</string>
 
-    <!-- Login strings -->
+    <!-- login strings -->
     <string name="hint_user">Usuario</string>
     <string name="hint_password">Contraseña</string>
     <string name="btn_login">Iniciar sesión</string>
     <string name="btn_register">Registrar usuario</string>
     <string name="btn_recover">Recuperar contraseña</string>
 
-    <!-- Details strings -->
+    <!-- details strings -->
     <string name="img_description">Imagen</string>
     <string name="btn_back">Volver</string>
 
-    <!-- Dialog New Dinosaur -->
+    <!-- dialog new dinosaur -->
     <string name="dialog_select_image">Seleccionar imagen</string>
     <string name="dialog_hint_name">Nombre</string>
     <string name="dialog_hint_type">Tipo</string>
     <string name="dialog_hint_habitat">Hábitat</string>
     <string name="dialog_hint_level">Nivel</string>
 
-    <!-- Home Fragment -->
+    <!-- home fragment -->
     <string name="home_welcome">Bienvenido</string>
     <string name="home_name">Antonio</string>
     <string name="home_title">Explorador de Dinosaurios</string>
@@ -43,7 +43,7 @@
     <string name="home_info_title">Información útil</string>
     <string name="home_info_text">Esta aplicación contiene información educativa sobre dinosaurios, sus características, hábitats y período de existencia. Usa el Drawer o la barra inferior para navegar entre secciones.</string>
 
-    <!-- Settings Fragment -->
+    <!-- settings fragment -->
     <string name="settings_title">Configuración</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_theme_option">• Modo claro/oscuro</string>
@@ -54,7 +54,7 @@
     <string name="settings_version">Versión: 1.0</string>
     <string name="settings_developer">Desarrollador: Antonio</string>
 
-    <!-- Search Fragment -->
+    <!-- search fragment -->
     <string name="search_title">Buscar</string>
     <string name="search_hint">Buscar dinosaurio por nombre</string>
     <string name="search_results">Resultados de búsqueda</string>
@@ -64,7 +64,7 @@
     <string name="search_by_type">• Búsqueda por tipo: Carnívoro, Herbívoro</string>
     <string name="search_by_habitat">• Busca por hábitat: Montañas, Océano, Jungla</string>
 
-    <!-- About Fragment -->
+    <!-- about fragment -->
     <string name="about_title">Acerca de</string>
     <string name="about_title_description">Descripción</string>
     <string name="about_app_name">Dinosaurios App</string>

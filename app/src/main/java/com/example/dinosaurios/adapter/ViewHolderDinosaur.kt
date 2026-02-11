@@ -4,11 +4,11 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dinosaurios.R
 import com.example.dinosaurios.databinding.ItemDinosaurBinding
-import com.example.dinosaurios.models.Dinosaur
+import com.example.dinosaurios.domain.models.Dinosaur
 
 /**
- * ViewHolder que mapea las propiedades de `Dinosaur` a la vista del item.
- * Proporciona listeners para borrar, editar y ver detalles (click en el item).
+ * viewholder que mapea las propiedades de `dinosaur` a la vista del item.
+ * proporciona listeners para borrar, editar y ver detalles (click en el item).
  */
 class ViewHolderDinosaur(view: View,
                             var deleteOnClick: (Int) -> Unit,
@@ -18,18 +18,18 @@ class ViewHolderDinosaur(view: View,
 
     private val binding: ItemDinosaurBinding = ItemDinosaurBinding.bind(view)
 
-    // Metodo que se encarga de mapear los item por propiedad del modelo.
+    // metodo que se encarga de mapear los item por propiedad del modelo.
     fun renderize(dinosaur: Dinosaur) {
         binding.txtviewDinoName.text = dinosaur.name
         binding.txtviewDinoType.text = dinosaur.type
         binding.txtviewDinoHabitat.text = dinosaur.habitat
         binding.txtviewDinoLevel.text = binding.root.context.getString(R.string.level_format, dinosaur.level)
 
-        // como image es un Int (R.drawable), se carga directamente
+        // como image es un int (r.drawable), se carga directamente
         binding.imageDino.setImageResource(dinosaur.image)
 
         binding.btnDeleteDino.setOnClickListener {
-            // Llama al callback con la posición del adapter
+            // llama al callback con la posicin del adapter
             deleteOnClick(adapterPosition)
         }
 

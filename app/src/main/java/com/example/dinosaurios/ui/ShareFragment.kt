@@ -7,18 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.dinosaurios.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+// todo: rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. arg_item_number
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 /**
- * Fragment de ejemplo (Share).
- * Esta clase fue generada por plantilla y contiene un factory method `newInstance`.
- * Mantener los comentarios breves: la UI se infla en onCreateView.
+ * fragment de ejemplo (share).
+ * esta clase fue generada por plantilla y contiene un factory method `newinstance`.
+ * mantener los comentarios breves: la ui se infla en oncreateview.
  */
 class ShareFragment : Fragment() {
-    // Parámetros opcionales que pueden ser pasados vía Bundle
+    // parmetros opcionales que pueden ser pasados va bundle
     private var param1: String? = null
     private var param2: String? = null
 
@@ -34,13 +34,13 @@ class ShareFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflar el layout asociado a este fragment
+        // inflar el layout asociado a este fragment
         return inflater.inflate(R.layout.fragment_share, container, false)
     }
 
     companion object {
         /**
-         * Factory method de conveniencia para crear instancias del fragment.
+         * factory method de conveniencia para crear instancias del fragment.
          */
         @JvmStatic
         fun newInstance(param1: String, param2: String) =

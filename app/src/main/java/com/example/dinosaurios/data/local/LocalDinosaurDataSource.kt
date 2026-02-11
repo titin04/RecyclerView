@@ -1,14 +1,14 @@
-package com.example.dinosaurios.objects_models
+package com.example.dinosaurios.data.local
 
 import com.example.dinosaurios.R
-import com.example.dinosaurios.models.Dinosaur
+import com.example.dinosaurios.data.datasource.DinosaurDataSource
+import com.example.dinosaurios.domain.models.Dinosaur
+import javax.inject.Inject
 
-/**
- * Repositorio estático de ejemplo que contiene una lista de dinosaurios predefinida.
- * Usado por el `DaoDinosaur` como fuente de datos inicial.
- */
-object Repository {
-    val listDinosaurs: List<Dinosaur> = listOf(
+class LocalDinosaurDataSource @Inject constructor() : DinosaurDataSource {
+
+    // simulating a database with a mutablelist
+    private val listDinosaurs = mutableListOf(
         Dinosaur("Carcha", "Carnívoro", "Montañas", 150, R.drawable.carcharodontosaurus),
         Dinosaur("Giganotosaurus", "Carnívoro", "Montañas", 150, R.drawable.giganotosaurus),
         Dinosaur("Tusoteuthis", "Carnívoro", "Océano", 150, R.drawable.tusoteuthis),
@@ -20,4 +20,24 @@ object Repository {
         Dinosaur("Paraceratherium", "Herbívoro", "Desierto", 125, R.drawable.paraceratherium),
         Dinosaur("Parasaur", "Herbívoro", "Costa", 25, R.drawable.parasaur)
     )
+
+    override fun getDinosaurs(): List<Dinosaur> {
+        return listDinosaurs
+    }
+
+    override fun addDinosaur(dinosaur: Dinosaur) {
+        listDinosaurs.add(dinosaur)
+    }
+
+    override fun removeDinosaurAt(index: Int) {
+        if (index in 0 until listDinosaurs.size) {
+            listDinosaurs.removeAt(index)
+        }
+    }
+
+    override fun updateDinosaurAt(index: Int, dinosaur: Dinosaur) {
+        if (index in 0 until listDinosaurs.size) {
+            listDinosaurs[index] = dinosaur
+        }
+    }
 }

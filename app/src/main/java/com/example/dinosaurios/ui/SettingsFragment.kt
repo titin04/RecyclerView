@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import com.example.dinosaurios.R
 
 /**
- * Fragment de Settings (plantilla).
- * Puede ser abierto desde el menú de opciones; actualmente no implementa lógica adicional.
+ * fragment de settings (plantilla).
+ * puede ser abierto desde el men de opciones; actualmente no implementa lgica adicional.
  */
 class SettingsFragment : Fragment() {
     private var param1: String? = null
@@ -27,7 +27,7 @@ class SettingsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflar el layout de Settings
+        // inflar el layout de settings
         return inflater.inflate(R.layout.fragment_settings, container, false)
     }
 
